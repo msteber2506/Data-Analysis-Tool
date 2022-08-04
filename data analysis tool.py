@@ -1,9 +1,11 @@
 
 import csv
 import tkinter as tk
-from tkinter import ttk, filedialog
+from tkinter import ttk, filedialog, simpledialog
 
-
+class File:
+    def __init__(self,path=""):
+        self.path = path
 
 
 def parsecsv(dir):
@@ -18,6 +20,36 @@ def uploadFile(event=None):
     filename = filedialog.askopenfilename()
     return(filename)
 
+def validateFile(filename):
+    if filename.split(".")[-1] != "csv":
+        warning()
+        print("NOT CSV")
+        return False
+    else:
+        print("SUCCESS")
+        print(filename)
+        return True
+
+def searchInFile(key):
+    dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
+    count = 0
+    for row in dataArray:
+        for cell in row[1:]:
+            if cell == key:
+                count +=1
+    return count
+
+def searchButton():
+    inp = simpledialog.askstring("Monkey", "Please enter the word...")
+    count = searchInFile(inp)
+    print(count)
+    return count
+
+def uploadButton(file):
+    if validateFile:
+        file.path = validateFile(uploadFile)
+
+
 def warning():
     popup = tk.Tk()
     popup.title("Tool")
@@ -28,19 +60,6 @@ def warning():
     popup.geometry(f'{popup_width}x{popup_height}+{center_x}+{center_y}')
     message = tk.Label(popup,text="ERROR")
     message.grid(column=0,row=0)
-    
-
-def validateFile():
-    filename = uploadFile()
-    if filename.split(".")[-1] != "csv":
-        warning()
-        print("NOT CSV")
-    else:
-        global pathtofile 
-        pathtofile = filename
-        print("SUCCESS")
-        print(pathtofile)
-
 
 def displayTable():
     dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
@@ -60,17 +79,9 @@ def displayTable():
         table.insert(parent='',index='end',iid=dataArray.index(row),values=row)
     table.pack()
 
-def searchInFile(key):
-    dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
-    count = 0
-    for row in dataArray:
-        for cell in row:
-            if row == key:
-                count +=1
-
-
-
 if __name__ == "__main__":
+
+    file = File()
 
     window = tk.Tk()
     window.title("Tool")
@@ -91,14 +102,14 @@ if __name__ == "__main__":
 
     text = tk.Label(toolbar,text="Welcome to Data Analysis Application. Please Upload a File to Continue...",anchor='center')
     text.grid(sticky='n',row=0,column=0,columnspan=2)
-    button = tk.Button(toolbar, text='Upload', command=validateFile)
+    button = tk.Button(toolbar, text='Upload', command=lambda: uploadButton(file))
     button.grid(sticky='e',row=1,column=0)
     button = tk.Button(toolbar, text='Display', command=displayTable)
     button.grid(sticky='w',row=1,column=1)
 
     text = tk.Label(toolbar,text="Data Analysis Tools",anchor='center')
     text.grid(sticky='n',row=2,column=0,columnspan=2)
-    button = tk.Button(toolbar, text='Search', command=lambda: searchInFile(key))
+    button = tk.Button(toolbar, text='Search', command=searchButton)
     button.grid(sticky='e',row=3,column=0)
     button = tk.Button(toolbar, text='Compare', command='')
     button.grid(sticky='w',row=3,column=1)
@@ -123,37 +134,3 @@ if __name__ == "__main__":
 
 
 
-
-    '''
-    my_game = ttk.Treeview(window)
-
-    my_game['columns'] = ['player_id', 'player_name', 'player_Rank', 'player_states', 'player_city']
-
-    my_game.column("#0", width=0,  stretch='no')
-    my_game.column("player_id",anchor=CENTER, width=80)
-    my_game.column("player_name",anchor=CENTER,width=80)
-    my_game.column("player_Rank",anchor=CENTER,width=80)
-    my_game.column("player_states",anchor=CENTER,width=80)
-    my_game.column("player_city",anchor=CENTER,width=80)
-
-    my_game.heading("#0",text="",anchor=CENTER)
-    my_game.heading("player_id",text="Id",anchor=CENTER)
-    my_game.heading("player_name",text="Name",anchor=CENTER)
-    my_game.heading("player_Rank",text="Rank",anchor=CENTER)
-    my_game.heading("player_states",text="States",anchor=CENTER)
-    my_game.heading("player_city",text="States",anchor=CENTER)
-
-    my_game.insert(parent='',index='end',iid=0,
-    values=['1','Ninja','101','Oklahoma', 'Moore'])
-    my_game.insert(parent='',index='end',iid=1,text='',
-    values=('2','Ranger','102','Wisconsin', 'Green Bay'))
-    my_game.insert(parent='',index='end',iid=2,text='',
-    values=('3','Deamon','103', 'California', 'Placentia'))
-    my_game.insert(parent='',index='end',iid=3,text='',
-    values=('4','Dragon','104','New York' , 'White Plains'))
-    my_game.insert(parent='',index='end',iid=4,text='',
-    values=('5','CrissCross','105','California', 'San Diego'))
-    my_game.insert(parent='',index='end',iid=5,text='',
-    values=('6','ZaqueriBlack','106','Wisconsin' , 'TONY'))
-
-    my_game.pack()'''
