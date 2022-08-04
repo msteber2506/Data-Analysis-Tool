@@ -47,7 +47,7 @@ def searchButton():
 
 def uploadButton(file):
     if validateFile:
-        file.path = validateFile(uploadFile)
+        file.path = validateFile(uploadFile())
 
 
 def warning():
