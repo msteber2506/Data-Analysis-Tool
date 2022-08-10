@@ -1,7 +1,8 @@
 
 import csv
 import tkinter as tk
-from tkinter import ttk, filedialog, simpledialog
+from tkinter import ttk, filedialog, simpledialog,Entry
+from tkinter import messagebox as mb
 
 class File:
     def __init__(self,path=""):
@@ -22,7 +23,7 @@ def uploadFile(event=None):
 
 def validateFile(filename):
     if filename.split(".")[-1] != "csv":
-        warning()
+        mb.showerror('Error','Please upload a csv file...',parent=window)
         print("NOT CSV")
         return False
     else:
@@ -33,21 +34,43 @@ def validateFile(filename):
 def searchInFile(key):
     dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
     count = 0
-    for row in dataArray:
-        for cell in row[1:]:
-            if cell == key:
+    for row in dataArray[1:]:
+        for cell in row:
+            if cell.lower() == key:
                 count +=1
     return count
+
+def compareInFile(key1,key2):
+    dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
+    count = 0
+    for row in dataArray[1:]:
+        if (key1 in row) and (key2 in row):
+            count +=1
+    return count
+
+def getRowNum(key):
+    pass
+
+    
+ 
 
 def searchButton():
     inp = simpledialog.askstring("Monkey", "Please enter the word...")
     count = searchInFile(inp)
-    print(count)
+    print(f'There are {count} appearances of the word {inp} in the file.')
     return count
 
 def uploadButton(file):
     if validateFile:
         file.path = validateFile(uploadFile())
+
+def compareButton():
+    inp1 = simpledialog.askstring("Monkey", "Please enter the first word...")
+    inp2 = simpledialog.askstring("Monkey", "Please enter the second word...")
+    count = compareInFile(inp1,inp2)
+    print(f'There are 4 rows where ')
+    return count
+
 
 
 def warning():
@@ -111,7 +134,7 @@ if __name__ == "__main__":
     text.grid(sticky='n',row=2,column=0,columnspan=2)
     button = tk.Button(toolbar, text='Search', command=searchButton)
     button.grid(sticky='e',row=3,column=0)
-    button = tk.Button(toolbar, text='Compare', command='')
+    button = tk.Button(toolbar, text='Compare', command=compareButton)
     button.grid(sticky='w',row=3,column=1)
     toolbar.pack()
 
@@ -119,6 +142,22 @@ if __name__ == "__main__":
     area = tk.Text(bg='grey',font ="Helvetica 25 bold")
     area.pack(fill='x')
     '''
+
+    
+    #TESTING
+    
+    test = tk.Frame(window)
+    height = 50
+    width = 5
+    for i in range(height): #Rows
+        for j in range(width): #Columns
+            b = Entry(test, text="")
+            b.grid(row=i, column=j,padx=0,pady=0,ipadx=0,ipady=0)
+    
+
+    test.pack()
+
+    #END TESTING
 
 
     window.mainloop()
