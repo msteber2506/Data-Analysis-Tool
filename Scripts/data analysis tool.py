@@ -32,19 +32,26 @@ def validateFile(filename):
         return True
 
 def searchInFile(key):
-    dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
+    dataArray = parsecsv('/Users/mustafasuhateber/desktop/Data Analysis Tool/Inputs/tc.csv')
     count = 0
     for row in dataArray[1:]:
         for cell in row:
-            if cell.lower() == key:
+            if key.lower() in cell.lower():
                 count +=1
     return count
 
 def compareInFile(key1,key2):
-    dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
+    dataArray = parsecsv('/Users/mustafasuhateber/desktop/Data Analysis Tool/Inputs/tc.csv')
     count = 0
     for row in dataArray[1:]:
-        if (key1 in row) and (key2 in row):
+        k1 = False
+        k2 = False
+        for cell in row:
+            if key1.lower() in cell.lower():
+                k1 = True
+            if key2.lower() in cell.lower():
+                k2 = True
+        if k1 and k2:
             count +=1
     return count
 
@@ -68,7 +75,7 @@ def compareButton():
     inp1 = simpledialog.askstring("Monkey", "Please enter the first word...")
     inp2 = simpledialog.askstring("Monkey", "Please enter the second word...")
     count = compareInFile(inp1,inp2)
-    print(f'There are 4 rows where ')
+    print(f'There are {count} rows where {inp1} and {inp2} appear together.')
     return count
 
 
@@ -85,7 +92,7 @@ def warning():
     message.grid(column=0,row=0)
 
 def displayTable():
-    dataArray = parsecsv('/Users/mustafasuhateber/Desktop/test.csv')
+    dataArray = parsecsv('/Users/mustafasuhateber/desktop/Data Analysis Tool/Inputs/tc.csv')
     table = ttk.Treeview(window, show="tree headings", height=100)
     columns = []
     for x in range(len(dataArray[0])+1):
@@ -142,10 +149,11 @@ if __name__ == "__main__":
     area = tk.Text(bg='grey',font ="Helvetica 25 bold")
     area.pack(fill='x')
     '''
-
+    
     
     #TESTING
     
+    '''    
     test = tk.Frame(window)
     height = 50
     width = 5
@@ -156,12 +164,18 @@ if __name__ == "__main__":
     
 
     test.pack()
+    '''
 
     #END TESTING
 
 
     window.mainloop()
 
+    '''
+    #  IDEAS
+    *- It might be a good idea to make the display function open a new window to display the table.
+    *- You could add a filter function
+    '''
 
 
 

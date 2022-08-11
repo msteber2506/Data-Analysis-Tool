@@ -1,0 +1,133 @@
+Task	Processing Stage	Sub-task	Outcome	Hazard
+Acknowledge notification of unscheduled event	Acquisition	Attend to notification	Notification is attended	None
+Acknowledge notification of unscheduled event	Acquisition	Attend to notification	Notification is not attended	Perception error
+Acknowledge notification of unscheduled event	Assessment	Interpret notification	Notification correctly interpreted	None
+Acknowledge notification of unscheduled event	Assessment	Interpret notification	Notification incorrectly interpreted	Decision error
+Acknowledge notification of unscheduled event	Assessment	Interpret notification	Notification not understood	Knowledge error
+Acknowledge notification of unscheduled event	Decision	Decide to initiate abnormal/emergency procedure	Correctly decide to initiate procedure	None
+Acknowledge notification of unscheduled event	Decision	Decide to initiate abnormal/emergency procedure	Correctly decide not to initiate procedure	None
+Acknowledge notification of unscheduled event	Decision	Decide to initiate abnormal/emergency procedure	Incorrectly decide to initiate procedure	Decision error; Violation
+Acknowledge notification of unscheduled event	Decision	Decide to initiate abnormal/emergency procedure	Incorrectly decide not to initiate procedure	Decision error; Violation
+Contact other party	Acquisition	Perceive contacts	All relevant information accurately extracted	None
+Contact other party	Acquisition	Perceive contacts	Inaccurate information acquired	Perception error
+Contact other party	Acquisition	Perceive contacts	Some relevant information not acquired	Skill-based error; Perception Error
+Contact other party	Acquisition	Recall contacts	Recall all relevant information correctly	None
+Contact other party	Acquisition	Recall contacts	Recall incorrect information	Skill-based error; Knowledge error
+Contact other party	Acquisition	Recall contacts	Fail to recall relevant information	Knowledge error
+Contact other party	Assessment	Determine parties to contact	Applicable party identified	None
+Contact other party	Assessment	Determine parties to contact	Non-applicable party identified	Decision error; Knowledge error
+Contact other party	Assessment	Determine parties to contact	No applicable party identified	Decision error; Knowledge error
+Contact other party	Decision	Decide who to contact	Choose most appropriate contact	None
+Contact other party	Decision	Decide who to contact	Choose less appropriate contact	Decision error; Violation
+Contact other party	Execution	Initiate communication	Effective communication	None
+Contact other party	Execution	Initiate communication	Ineffective communication	Skill-based error
+Contact other party	Execution	Initiate communication	Communication not established	Skill-based error
+Delay new task	Acquisition	Recall other tasks to complete	Recall all relevant information correctly	None
+Delay new task	Acquisition	Recall other tasks to complete	Recall incorrect information	Skill-based error; Knowledge error
+Delay new task	Acquisition	Recall other tasks to complete	Fail to recall relevant information	Skill-based error; Knowledge error
+Delay new task	Assessment	Determine priority	Correctly assess priority of outstanding tasks	None
+Delay new task	Assessment	Determine priority	Incorrectly assess priority of outstanding tasks	Decision error; Knowledge error
+Delay new task	Decision	Decide when to schedule delayed task	Schedule delayed task according to priority	None
+Delay new task	Decision	Decide when to schedule delayed task	Schedule delayed task contrary to priority	Decision error
+Delay new task	Decision	Decide when to schedule delayed task	Delayed task not scheduled	Decision error; Violation
+Delay new task	Execution	Execute delayed task according to schedule	Delayed task initiated when planned	None
+Delay new task	Execution	Execute delayed task according to schedule	Delayed task initiated at unplanned time	Decision error; Knowledge error; Violation
+Delay new task	Execution	Execute delayed task according to schedule	Delayed task not initiated	Knowledge error; Violation
+Handoff UAV (receiver)	Acquisition	Perceive handoff request from sender	All relevant information accurately extracted	None
+Handoff UAV (receiver)	Acquisition	Perceive handoff request from sender	Inaccurate information acquired	Perception error
+Handoff UAV (receiver)	Acquisition	Perceive handoff request from sender	Some relevant information not acquired	Skill-based error; Perception Error
+Handoff UAV (receiver)	Assessment	Determine if ready to accept control	Correctly determine ready	None
+Handoff UAV (receiver)	Assessment	Determine if ready to accept control	Correctly determine not ready	None
+Handoff UAV (receiver)	Assessment	Determine if ready to accept control	Incorrectly determine ready	Decision error; Knowledge error
+Handoff UAV (receiver)	Assessment	Determine if ready to accept control	Incorrectly determine not ready	Decision error
+Handoff UAV (receiver)	Decision	Decide to accept handoff	Accept when ready	None
+Handoff UAV (receiver)	Decision	Decide to accept handoff	Reject when not ready	None
+Handoff UAV (receiver)	Decision	Decide to accept handoff	Accept when not ready	Decision error; Violation
+Handoff UAV (receiver)	Decision	Decide to accept handoff	Reject when ready	Decision error; Violation
+Handoff UAV (receiver)	Execution	Accept handoff	Control taken	None
+Handoff UAV (receiver)	Execution	Accept handoff	Control not taken	Skill-based error; Violation
+Handoff UAV (sender)	Acquisition	Perceive handoff request response from receiver	All relevant information accurately extracted	None
+Handoff UAV (sender)	Acquisition	Perceive handoff request response from receiver	Inaccurate information acquired	Perception error
+Handoff UAV (sender)	Acquisition	Perceive handoff request response from receiver	Some relevant information not acquired	Skill-based error; Perception Error
+Handoff UAV (sender)	Assessment	Determine receiver is ready to accept control	Correctly interpret the receiving supervisor is ready	None
+Handoff UAV (sender)	Assessment	Determine receiver is ready to accept control	Correctly interpret the receiving supervisor is not ready	None
+Handoff UAV (sender)	Assessment	Determine receiver is ready to accept control	Incorrectly interpret the receiving supervisor is ready	Decision error; Skill-based error
+Handoff UAV (sender)	Assessment	Determine receiver is ready to accept control	Incorrectly interpret the receiving supervisor is not ready	Decision error; Skill-based error
+Handoff UAV (sender)	Decision	Decide to transfer control	Decide to transfer when receiving supervisor is ready	None
+Handoff UAV (sender)	Decision	Decide to transfer control	Decide not to transfer when receiving supervisor is not ready	None
+Handoff UAV (sender)	Decision	Decide to transfer control	Decide to transfer when receiving supervisor is not ready	Decision error; Violation
+Handoff UAV (sender)	Decision	Decide to transfer control	Decide not to transfer when receiving supervisor is ready	Decision error
+Handoff UAV (sender)	Execution	Transfer control	Control transferred	None
+Handoff UAV (sender)	Execution	Transfer control	Control not transferred	Skill-based error; Violation
+Hold UAV	Acquisition	Perceive controls	All relevant information accurately extracted	None
+Hold UAV	Acquisition	Perceive controls	Inaccurate information acquired	Perception error
+Hold UAV	Acquisition	Perceive controls	Some relevant information not acquired	Skill-based error; Perception Error
+Hold UAV	Assessment	Determine appropriate control	Correct control identified	None
+Hold UAV	Assessment	Determine appropriate control	Incorrect control identified	Decision error
+Hold UAV	Assessment	Determine appropriate control	No control identified	Knowledge error
+Hold UAV	Decision	Confirm need to hold	Correctly choose hold	None
+Hold UAV	Decision	Confirm need to hold	Correctly reject hold	None
+Hold UAV	Decision	Confirm need to hold	Incorrectly choose hold	Decision error; Violation
+Hold UAV	Decision	Confirm need to hold	Incorrectly reject hold	Decision error; Violation
+Hold UAV	Execution	Execute the hold command	Command executed	None
+Hold UAV	Execution	Execute the hold command	Command not executed	Skill-based error; Violation
+Land UAV	Acquisition	Perceive controls	All relevant information accurately extracted	None
+Land UAV	Acquisition	Perceive controls	Inaccurate information acquired	Perception error
+Land UAV	Acquisition	Perceive controls	Some relevant information not acquired	Skill-based error; Perception Error
+Land UAV	Assessment	Determine appropriate control	Correct control identified	None
+Land UAV	Assessment	Determine appropriate control	Incorrect control identified	Decision error
+Land UAV	Assessment	Determine appropriate control	No control identified	Knowledge error
+Land UAV	Decision	Confirm need to land	Correctly choose land	None
+Land UAV	Decision	Confirm need to land	Correctly reject land	None
+Land UAV	Decision	Confirm need to land	Incorrectly choose land	Decision error; Violation
+Land UAV	Decision	Confirm need to land	Incorrectly reject land	Decision error; Violation
+Land UAV	Execution	Execute the land command	Command executed	None
+Land UAV	Execution	Execute the land command	Command not executed	Skill-based error; Violation
+Manual Control (direct)	Acquisition	Perceive flight information	All relevant information accurately extracted	None
+Manual Control (direct)	Acquisition	Perceive flight information	Inaccurate information acquired	Perception error
+Manual Control (direct)	Acquisition	Perceive flight information	Some relevant information not acquired	Skill-based error; Perception Error
+Manual Control (direct)	Assessment	Determine error in flight path	Error in flight path is estimated sufficiently	None
+Manual Control (direct)	Assessment	Determine error in flight path	Error in flight path is estimated insufficiently	Skill-based error
+Manual Control (direct)	Assessment	Determine error in flight path	Error cannot be estimated	Perception error
+Manual Control (direct)	Decision	Decide how to control aircraft	Sufficient control technique determined	None
+Manual Control (direct)	Decision	Decide how to control aircraft	Insufficient control technique determined	Skill-based error
+Manual Control (direct)	Execution	Exercise control	Appropriate control exercised	None
+Manual Control (direct)	Execution	Exercise control	Inappropriate control exercised	Skill-based error; Violation
+Manual Control (direct)	Execution	Exercise control	No control exercised	Skill-based error; Violation
+Manual Control (autopilot)	Acquisition	Perceive display	All relevant information accurately extracted	None
+Manual Control (autopilot)	Acquisition	Perceive display	Inaccurate information acquired	Perception error
+Manual Control (autopilot)	Acquisition	Perceive display	Some relevant information not acquired	Skill-based error; Perception Error
+Manual Control (autopilot)	Assessment	Determine flight plan	Appropriate flight planned	None
+Manual Control (autopilot)	Assessment	Determine flight plan	Inappropriate flight planned	Decision error
+Manual Control (autopilot)	Decision	Decide on flight plan parameters	All parameters chosen according to new flight plan	None
+Manual Control (autopilot)	Decision	Decide on flight plan parameters	Some parameters conflict with new flight plan	Decision error
+Manual Control (autopilot)	Decision	Decide on flight plan parameters	Some parameters not chosen	Skill-based error; Knowledge error
+Manual Control (autopilot)	Execution	Program flight plan parameters	All parameters programmed as planned	None
+Manual Control (autopilot)	Execution	Program flight plan parameters	Some parameters programmed not as planned	Skill-based error; Violation
+Manual Control (autopilot)	Execution	Program flight plan parameters	Some parameters not programmed	Skill-based error; Violation
+Monitor flight(s)	Acquisition	Perceive display	All relevant information accurately extracted	None
+Monitor flight(s)	Acquisition	Perceive display	Inaccurate information acquired	Perception error
+Monitor flight(s)	Acquisition	Perceive display	Some relevant information not acquired	Skill-based error; Perception Error
+Monitor flight(s)	Acquisition	Recall mission plan	Recall all relevant information correctly	None
+Monitor flight(s)	Acquisition	Recall mission plan	Recall incorrect information	Skill-based error; Knowledge error
+Monitor flight(s)	Acquisition	Recall mission plan	Fail to recall relevant information	Knowledge error
+Monitor flight(s)	Assessment	Compare system status to mission plan	Correctly determine system status conforms to mission plan	None
+Monitor flight(s)	Assessment	Compare system status to mission plan	Correctly determine system status does not conform to mission plan	None
+Monitor flight(s)	Assessment	Compare system status to mission plan	Incorrectly determine system status conforms to mission plan	Decision error
+Monitor flight(s)	Assessment	Compare system status to mission plan	Incorrectly determine system status does not conform to mission plan	Decision error
+Monitor flight(s)	Decision	Decide to initiate abnormal/emergency procedure	Correctly decide to initiate procedure	None
+Monitor flight(s)	Decision	Decide to initiate abnormal/emergency procedure	Correctly decide not to initiate procedure	None
+Monitor flight(s)	Decision	Decide to initiate abnormal/emergency procedure	Incorrectly decide to initiate procedure	Decision error
+Monitor flight(s)	Decision	Decide to initiate abnormal/emergency procedure	Incorrectly decide not to initiate procedure	Decision error; Violation
+Return to launch	Acquisition	Perceive controls	All relevant information accurately extracted	None
+Return to launch	Acquisition	Perceive controls	Inaccurate information acquired	Perception error
+Return to launch	Acquisition	Perceive controls	Some relevant information not acquired	Skill-based error; Perception Error
+Return to launch	Assessment	Determine appropriate control	Correct control identified	None
+Return to launch	Assessment	Determine appropriate control	Incorrect control identified	Decision error
+Return to launch	Assessment	Determine appropriate control	No control identified	Knowledge error
+Return to launch	Decision	Confirm need to return	Correctly choose return	None
+Return to launch	Decision	Confirm need to return	Correctly reject return	None
+Return to launch	Decision	Confirm need to return	Incorrectly choose return	Decision error; Violation
+Return to launch	Decision	Confirm need to return	Incorrectly reject return	Decision error; Violation
+Return to launch	Execution	Execute the return command	Command executed	None
+Return to launch	Execution	Execute the return command	Command not executed	Skill-based error; Violation
